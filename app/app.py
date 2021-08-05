@@ -1,3 +1,12 @@
+## Step 1: user inputs genre
+# need to figure out which genres Spotify recognizes to match
+# fail gracefully and prompt user again if they enter a genre it doesn't recognize
+
+## Step 2: comp returns random selection of artists from genre
+# randomize artist list from genre
+
+## Step 3: user clicks links to Spotify
+# generate link to Spotify artist(s)
 
 import os
 from dotenv import load_dotenv
@@ -62,12 +71,3 @@ print(type(result))
 print(result.keys())
 
 
-## Step 1: user inputs genre
-# need to figure out which genres Spotify recognizes to match
-# fail gracefully and prompt user again if they enter a genre it doesn't recognize
-
-## Step 2: comp returns random selection of artists from genre
-# randomize artist list from genre
-
-## Step 3: user clicks links to Spotify
-# generate link to Spotify
