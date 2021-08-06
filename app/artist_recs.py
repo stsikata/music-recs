@@ -1,6 +1,3 @@
-# adapted from: https://github.com/s2t2/my-spotify-app-py/blob/master/list_songs.py
-# and adapted from: https://github.com/prof-rossetti/intro-to-python/blob/main/notes/python/packages/spotipy.md#basic-usage 
-
 from dotenv import load_dotenv # helps us access .env variables
 import os
 
@@ -19,8 +16,14 @@ client_credentials_manager = SpotifyClientCredentials()
 client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # response = client.search(q="Springsteen on Broadway", limit=20)
-search_term = input("please enter input: ")
-response = client.search(q=search_term, type="track", limit=20)
+#  search_term = input("please enter input: ")
+
+# # GETS US NAME WHEN ARTIST ID IS KNOWN
+# response = client.artist_related_artists(artist_id="6nfN5B7Jmi853SHa9106Hz")
+# pprint(response)
+# for a in response["artists"]:
+#     print(a["name"], ":", a["external_urls"]["spotify"])
+
 
 # breakpoint()
 
@@ -29,9 +32,7 @@ response = client.search(q=search_term, type="track", limit=20)
 
 # pprint(response)
 
-# exit()
+# for i, track in enumerate(response['tracks']['items']):
+#     print(' ', i, track['name'])
 
-for i, track in enumerate(response['tracks']['items']):
-    print(' ', i, track['name'])
-
-print(type(response))
+# print(type(response))
