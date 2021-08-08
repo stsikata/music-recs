@@ -17,34 +17,31 @@ response = client.search(q=search_term, type="artist", limit=20)
 
 artist_list = []
 
+print("ARTIST CHOICES:")
 for artist_options in response["artists"]["items"]:
     artist_list.append(artist_options)
-    print("POSSIBLE ARTISTS")
     print(artist_options["name"])
 
-mention = input("which ONE")
+mention = input("Please type to confirm the name of the artist you were thinking of: ")
 
 ### Right now the below is cycling through them one at a time, but not checking for all of them
 for artist_options in response["artists"]["items"]:
     if artist_options["name"] == mention:
-    #     print("SUCCESS")
-    # if mention in artist_options["name"]:
-        print("SUCCESS!!")
+        # print("SUCCESS!!")
         artists_id = artist_options["id"] ## need it to take the artist id
         print(artists_id)
-    else:
-        print("fail :(")
+    # else:
+    #     print("fail :(")
 
+# print(type(artists_id))
 
-print(type(artists_id))
-
-# exit()
 
 # GETS US NAME WHEN ARTIST ID IS KNOWN
 
 new_response = client.artist_related_artists(artist_id=artists_id)
 # response = client.artist_related_artists(artist_id="66CXWjxzNUsdJxJ2JdwvnR")
 # pprint(new_response)
+print("These are your artist recommendations:")
 for a in new_response["artists"]:
     print(a["name"], ":", a["external_urls"]["spotify"])
 
