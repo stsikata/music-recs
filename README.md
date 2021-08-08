@@ -33,8 +33,8 @@ pip install -r requirements.txt
 
 In your local repository's root directory, create a new file called ".env". Update the contents of the ".env" file to specify your desired username:
 
-    client_id="YOUR_APP_CLIENT_ID"
-    client_secret="YOUR_APP_CLIENT_SECRET"
+    SPOTIPY_CLIENT_ID="YOUR_APP_CLIENT_ID"
+    SPOTIPY_CLIENT_SECRET="YOUR_APP_CLIENT_SECRET"
 
 ## Usage
 
