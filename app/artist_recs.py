@@ -29,7 +29,7 @@ for artist_options in response["artists"]["items"]:
     if artist_options["name"] == mention:
         # print("SUCCESS!!")
         artists_id = artist_options["id"] ## need it to take the artist id
-        print(artists_id)
+        # print(artists_id)
     # else:
     #     print("fail :(")
 
