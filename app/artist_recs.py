@@ -24,7 +24,7 @@ for artist_options in response["artists"]["items"]:
 
 mention = input("Please type to confirm the name of the artist you were thinking of: ")
 
-### Right now the below is cycling through them one at a time, but not checking for all of them
+### Right now the below is cycling through them one at a time, but not checking for all of them at once
 for artist_options in response["artists"]["items"]:
     if artist_options["name"] == mention:
         # print("SUCCESS!!")
@@ -37,7 +37,6 @@ for artist_options in response["artists"]["items"]:
 
 
 # GETS US NAME WHEN ARTIST ID IS KNOWN
-
 new_response = client.artist_related_artists(artist_id=artists_id)
 # response = client.artist_related_artists(artist_id="66CXWjxzNUsdJxJ2JdwvnR")
 # pprint(new_response)
