@@ -1,28 +1,52 @@
 from dotenv import load_dotenv # helps us access .env variables
 import os
-
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-
 from pprint import pprint
 
 load_dotenv() # load environment variables
-
 print("CLIENT ID:", os.environ.get("SPOTIPY_CLIENT_ID")) # env var used implicitly by the spotipy package
 print("CLIENT SECRET:", os.environ.get("SPOTIPY_CLIENT_SECRET"))  # env var used implicitly by the spotipy package
 
-# FYI, this client configuration approach expects / implicitly uses env vars named SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET
 client_credentials_manager = SpotifyClientCredentials()
 client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-# response = client.search(q="Springsteen on Broadway", limit=20)
-#  search_term = input("please enter input: ")
+# USER SEARCHES FOR ARTIST
+search_term = input("Please enter the name of a musical artist you like: ")
+response = client.search(q=search_term, type="artist", limit=20)
 
-# # GETS US NAME WHEN ARTIST ID IS KNOWN
-# response = client.artist_related_artists(artist_id="6nfN5B7Jmi853SHa9106Hz")
-# pprint(response)
-# for a in response["artists"]:
-#     print(a["name"], ":", a["external_urls"]["spotify"])
+artist_list = []
+
+for artist_options in response["artists"]["items"]:
+    artist_list.append(artist_options)
+    print("POSSIBLE ARTISTS")
+    print(artist_options["name"])
+
+mention = input("which ONE")
+
+### Right now the below is cycling through them one at a time, but not checking for all of them
+for artist_options in response["artists"]["items"]:
+    if artist_options["name"] == mention:
+    #     print("SUCCESS")
+    # if mention in artist_options["name"]:
+        print("SUCCESS!!")
+        artists_id = artist_options["id"] ## need it to take the artist id
+        print(artists_id)
+    else:
+        print("fail :(")
+
+
+print(type(artists_id))
+
+# exit()
+
+# GETS US NAME WHEN ARTIST ID IS KNOWN
+
+new_response = client.artist_related_artists(artist_id=artists_id)
+# response = client.artist_related_artists(artist_id="66CXWjxzNUsdJxJ2JdwvnR")
+# pprint(new_response)
+for a in new_response["artists"]:
+    print(a["name"], ":", a["external_urls"]["spotify"])
 
 
 # breakpoint()
