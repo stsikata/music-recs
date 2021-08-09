@@ -3,3 +3,5 @@
 python-dotenv # see: https://github.com/theskumar/python-dotenv
 
 spotipy # see: https://github.com/plamere/spotipy
+
+pytest

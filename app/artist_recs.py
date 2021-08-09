@@ -30,7 +30,7 @@ for artist_options in response["artists"]["items"]:
         #print("SUCCESS!!")
         artists_id = artist_options["id"] ## need it to take the artist id
         #print(artists_id)
-    #   else:
+    #else:
        # print("fail :(")
 
 

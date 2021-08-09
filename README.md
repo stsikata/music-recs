@@ -31,14 +31,14 @@ pip install -r requirements.txt
 
 ## Setup
 
-In your local repository's root directory, create a new file called ".env". Update the contents of the ".env" file to specify your desired username:
+In your local repository's root directory, create a new file called ".env". Go [Spotify's Developer Website](https://developer.spotify.com) and create an account if you don't already have one. Follow Dashboard > Log In > Create an App. Update the contents of the ".env" file to record your [Spotipy](https://spotipy.readthedocs.io/en/2.18.0/#) client id and client secret from within the app page on developer.spotify.com.
 
     SPOTIPY_CLIENT_ID="YOUR_APP_CLIENT_ID"
     SPOTIPY_CLIENT_SECRET="YOUR_APP_CLIENT_SECRET"
 
 ## Usage
 
-Run the game script:
+Run the artist recommendations script:
 
 ```py
 python artist_recs.py
