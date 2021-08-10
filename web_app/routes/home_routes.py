@@ -7,14 +7,9 @@ from app.artist_recs import fetch_artists
 home_routes = Blueprint("home_routes", __name__)
 
 @home_routes.route("/")
-@home_routes.route("/home")
+@home_routes.route("/artists")
 def index():
     print("HOME...")
-    return "Welcome Home"
-    #return render_template("home.html")
+    #return "Welcome Home"
+    return render_template("music_rec_form.html")
 
-@home_routes.route("/about")
-def about():
-    print("ABOUT...")
-    return "About Me"
-    #return render_template("about.html")
