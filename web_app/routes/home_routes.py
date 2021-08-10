@@ -1,6 +1,8 @@
 # web_app/routes/home_routes.py
 
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, jsonify, render_template, redirect, flash
+
+from app.artist_recs import fetch_artists
 
 home_routes = Blueprint("home_routes", __name__)
 
