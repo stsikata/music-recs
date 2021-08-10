@@ -1,6 +1,7 @@
 from dotenv import load_dotenv # helps us access .env variables
 import os
 import spotipy
+import random
 from spotipy.oauth2 import SpotifyClientCredentials
 from pprint import pprint
 
@@ -42,4 +43,3 @@ new_response = client.artist_related_artists(artist_id=artists_id)
 print("These are your artist recommendations:")
 for a in new_response["artists"]:
     print(a["name"], ":", a["external_urls"]["spotify"],"Popularity:", a["popularity"]) #Added popularity, need to understand what that is
-
