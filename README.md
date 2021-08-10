@@ -20,7 +20,7 @@ Use Anaconda to create and activate a new virtual environment called "music-recs
 
 ```sh
 conda create -n music-recs-env python=3.8 # (first time only)
-conda activate music-recs-env
+y
 ```
 
 After activating the virtual environment, install package dependencies (see the ["requirements.txt"](/requirements.txt) file):
