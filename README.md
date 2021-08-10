@@ -41,5 +41,5 @@ In your local repository's root directory, create a new file called ".env". Upda
 Run the game script:
 
 ```py
-python app.py
+python artist_recs.py
 ```
