@@ -1,6 +1,7 @@
 from dotenv import load_dotenv # helps us access .env variables
 import os
 import spotipy
+import random
 from spotipy.oauth2 import SpotifyClientCredentials
 from pprint import pprint
 
