@@ -12,34 +12,78 @@ client_credentials_manager = SpotifyClientCredentials()
 client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # USER SEARCHES FOR ARTIST
-search_term = input("Please enter the name of a musical artist you like: ")
+print("Find yourself at a loss for new music recommendations?")
+search_term = input("Enter the name of a musical artist you like: ")
 response = client.search(q=search_term, type="artist", limit=20)
 
-artist_list = []
+artist_list = [] ## not sure if we need this list anymore
 
 print("ARTIST CHOICES:")
-for artist_options in response["artists"]["items"]:
-    artist_list.append(artist_options)
-    print(artist_options["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
+for option in response["artists"]["items"]:
+    artist_list.append(option)
+    print(option["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
 
-mention = input("Please type to confirm the name of the artist you were thinking of: ")
+###
+mention = input("Please type your artist's name exactly as it appears above to confirm which one you were thinking of: ")
 
-### Right now the below is cycling through them one at a time, but not checking for all of them at once
-for artist_options in response["artists"]["items"]:
-    if artist_options["name"] == mention:
+# ## TRYING TO ADD ERROR MESSAGE BUT STRUGGLING
+# for option in response["artists"]["items"]:
+#     if option["name"] == mention:
+#         #print("SUCCESS!!")
+#         artists_id = option["id"]
+        # print(artists_id)
+    # else:
+    #    print("fail :(")
+
+
+
+###
+for option in artist_list:
+    if option["name"] == mention:
         #print("SUCCESS!!")
-        artists_id = artist_options["id"] ## need it to take the artist id
-        #print(artists_id)
-    #else:
-       # print("fail :(")
+        artists_id = option["id"]
+        # print(artists_id)
+        break
 
+
+## Come back to this after fixing   
+# for option in response["artists"]["items"]:
+#     while True:
+#         try:
+#             # mention = input("enter name again")
+#             if mention == option["name"]:
+#                 artists_id = option["id"]
+#                 print("Correct", artists_id)
+#                 break
+#             else:
+#                 print("not a correct entry")
+#                 break
+#         except:
+#             continue
+#         # except NameError:
+#         #     print("OOPS")
+#         #     break
+#         # else:
+#         #     print("yay success")
+
+# ### Right now the below is cycling through them one at a time, but not checking for all of them at once
+# for option in response["artists"]["items"]:
+#     if option["name"] == mention:
+#         #print("SUCCESS!!")
+#         artists_id = option["id"]
+#         # print(artists_id)
+#     else:
+#        print("fail :(")
+    
+# print(artists_id)
 
 
 # GETS US NAME WHEN ARTIST ID IS KNOWN
 new_response = client.artist_related_artists(artist_id=artists_id)
-# response = client.artist_related_artists(artist_id="66CXWjxzNUsdJxJ2JdwvnR")
-# pprint(new_response)
-print("These are your artist recommendations:")
-for a in new_response["artists"]:
-    print(a["name"], ":", a["external_urls"]["spotify"],"Popularity:", a["popularity"]) #Added popularity, need to understand what that is
 
+print("We think you'll like:")
+for a in new_response["artists"]:
+    print(a["name"], "|", a["external_urls"]["spotify"],"| Popularity:", a["popularity"]) #Added popularity, need to understand what that is
+
+# print("NEW RESPONSE: ", new_response)
+# print(type(new_response)) ## It's a dictionary

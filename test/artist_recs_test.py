@@ -1,5 +1,4 @@
-
-new_list = []
+# How to allow the app to fail gracefully and prompt the user for another input
 
 while True:
     mention = input("Please press 'DONE when you are finished")
