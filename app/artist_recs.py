@@ -12,7 +12,6 @@ client_credentials_manager = SpotifyClientCredentials()
 client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # USER SEARCHES FOR ARTIST
-print("Find yourself at a loss for new music recommendations?")
 search_term = input("Enter the name of a musical artist you like: ")
 response = client.search(q=search_term, type="artist", limit=20)
 
@@ -24,7 +23,7 @@ for option in response["artists"]["items"]:
     print(option["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
 
 ###
-mention = input("Please type your artist's name exactly as it appears above to confirm which one you were thinking of: ")
+# mention = input("Please type your artist's name exactly as it appears above to confirm which one you were thinking of: ")
 
 # ## TRYING TO ADD ERROR MESSAGE BUT STRUGGLING
 # for option in response["artists"]["items"]:
@@ -36,37 +35,39 @@ mention = input("Please type your artist's name exactly as it appears above to c
     #    print("fail :(")
 
 
-
 ###
-for option in artist_list:
-    if option["name"] == mention:
-        #print("SUCCESS!!")
+# for option in artist_list:
+#     if option["name"] == mention:
+#         #print("SUCCESS!!")
+#         artists_id = option["id"]
+#         # print(artists_id)
+#         break
+
+
+
+### when user enter's a name not in the list > print("WHOOPS")
+
+# something like if artists_id is not defined or is an empty string > do something
+# maybe len(artists_id) = 0
+
+# should loop back and allow the user to try inputing a name on the list again
+
+## WHILE VERSION
+
+while True:
+    mention = input("choose an artist name")
+    matching_artists = [opt for opt in artist_list if opt["name"] == mention]
+    try:
+        matching_artist = matching_artists[0]
         artists_id = option["id"]
-        # print(artists_id)
+        print(artists_id)
         break
+    except KeyError:
+        print("OOPS FOUND NO MATCHING ARTIST")
+        # pass
 
-
-## Come back to this after fixing   
-# for option in response["artists"]["items"]:
-#     while True:
-#         try:
-#             # mention = input("enter name again")
-#             if mention == option["name"]:
-#                 artists_id = option["id"]
-#                 print("Correct", artists_id)
-#                 break
-#             else:
-#                 print("not a correct entry")
-#                 break
-#         except:
-#             continue
-#         # except NameError:
-#         #     print("OOPS")
-#         #     break
-#         # else:
-#         #     print("yay success")
-
-# ### Right now the below is cycling through them one at a time, but not checking for all of them at once
+# print(matching_artist) # do something with the matching artist
+# ### OG OPTION cycles through them one at a time
 # for option in response["artists"]["items"]:
 #     if option["name"] == mention:
 #         #print("SUCCESS!!")
@@ -74,8 +75,6 @@ for option in artist_list:
 #         # print(artists_id)
 #     else:
 #        print("fail :(")
-    
-# print(artists_id)
 
 
 # GETS US NAME WHEN ARTIST ID IS KNOWN
