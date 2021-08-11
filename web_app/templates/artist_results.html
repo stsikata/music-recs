@@ -1,6 +1,6 @@
 <html>
 <body>
-\
+<h1>Here's who we think you'll like:</h1>
 <ul>
     {% for a in new_response["artists"] %}
         <li><a href="{{a["external_urls"]["spotify"]}}">{{a["name"]}}</a> :  Popularity: {{a["popularity"]}}</li>
@@ -8,13 +8,9 @@
     </ul>
 
 
+<img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="300" height="333">
+
 
 </body>
-
-
-
-
-
-
 
 </html>
