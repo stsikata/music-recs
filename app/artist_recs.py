@@ -27,14 +27,17 @@ if __name__ == "__main__":
 
     results = fetch_artists(search_term)
 
+
     # artist_list = []
 
     print("ARTIST CHOICES:")
     for artist_options in results:
         # artist_list.append(artist_options)
+
         print(artist_options["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
 
     mention = input("Please type to confirm the name of the artist you were thinking of: ")
+
 
     matching_artists = [artist for artist in results if artist["name"] == mention]
 
@@ -46,12 +49,15 @@ if __name__ == "__main__":
         exit()
 
 
+
     # GETS US NAME WHEN ARTIST ID IS KNOWN
     new_response = client.artist_related_artists(artist_id=artists_id)
     # response = client.artist_related_artists(artist_id="66CXWjxzNUsdJxJ2JdwvnR")
     # pprint(new_response)
     print("These are your artist recommendations:")
     for a in new_response["artists"]:
+
         print(a["name"], ":", a["external_urls"]["spotify"],"Popularity:", a["popularity"]) #Added popularity, need to understand what that is
 
     
+
