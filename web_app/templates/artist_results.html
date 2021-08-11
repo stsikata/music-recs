@@ -1,0 +1,20 @@
+<html>
+<body>
+\
+<ul>
+    {% for a in new_response["artists"] %}
+        <li><a href="{{a["external_urls"]["spotify"]}}">{{a["name"]}}</a> :  Popularity: {{a["popularity"]}}</li>
+    {% endfor %}
+    </ul>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
