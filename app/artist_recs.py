@@ -27,23 +27,26 @@ if __name__ == "__main__":
 
     results = fetch_artists(search_term)
 
-    artist_list = []
+
+    # artist_list = []
 
     print("ARTIST CHOICES:")
     for artist_options in results:
-        artist_list.append(artist_options)
+        # artist_list.append(artist_options)
+
         print(artist_options["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
 
     mention = input("Please type to confirm the name of the artist you were thinking of: ")
 
-    ### Right now the below is cycling through them one at a time, but not checking for all of them at once
-    for artist_options in results:
-        if artist_options["name"] == mention:
-            #print("SUCCESS!!")
-            artists_id = artist_options["id"] ## need it to take the artist id
-            #print(artists_id)
-        #   else:
-        # print("fail :(")
+
+    matching_artists = [artist for artist in results if artist["name"] == mention]
+
+    try:
+        matching_artist = matching_artists[0] # triggers an IndexError (list index out of range)
+        artists_id = matching_artist["id"]
+    except IndexError:
+        print("OOPS - TRY AGAIN")
+        exit()
 
 
 
@@ -53,4 +56,8 @@ if __name__ == "__main__":
     # pprint(new_response)
     print("These are your artist recommendations:")
     for a in new_response["artists"]:
+
         print(a["name"], ":", a["external_urls"]["spotify"],"Popularity:", a["popularity"]) #Added popularity, need to understand what that is
+
+    
+
