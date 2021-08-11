@@ -1,9 +1,10 @@
-{% extends "layout.html" %}
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "home" %}
 
 {% block content %}
 
 
-<h3> Hello! Welcome to the Spotify Music Discovery application.</h3>
+<h3> Hello! Welcome to a Spotify Music Discovery application.</h3>
 
 <form action="/artist/search" method="POST">
   
