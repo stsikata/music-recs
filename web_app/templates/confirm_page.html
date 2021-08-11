@@ -4,9 +4,10 @@
 {% block content %}
 
 
-<h2>Please Confirm Artist from the List Below{{ results["search_term"] }}</h2>
+<h2>Confirm Artist from List{{ results["search_term"] }}</h2>
 <form action="/artist/confirm" method="POST">
- 
+
+    <label for="fname">Please enter your artist's name exactly as it appears below:</label><br>
     <p> </p>
     <input type="text" id="fname" name="matching_artists"><br>
     <p> </p>
