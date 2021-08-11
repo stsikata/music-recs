@@ -1,21 +1,22 @@
-<html>
-<body>
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "home" %}
 
-<h2>Music Discovery App</h2>
+{% block content %}
 
-<p> Hello! Welcome to the Spotify Music Discovery application.</p>
+
+<h3> Hello! Welcome to a Spotify Music Discovery application.</h3>
 
 <form action="/artist/search" method="POST">
-  <label for="fname">To start, please enter an artist below:</label><br>
-  <p> </p>
-  <input type="text" id="fname" name="search_term" value="John"><br>
-  <p> </p>
-  <input type="submit" value="Submit">
+  
+    <label for="fname">To start, please enter an artist below:</label><br>
+    <p> </p>
+    <input type="text" id="fname" name="search_term"><br>
+    <p> </p>
+    <input type="submit" value="Submit">
+    
 </form> 
 
 
+<img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="300" height="180">
 
-<img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="500" height="333">
-
-</body>
-</html>
+{% endblock %}

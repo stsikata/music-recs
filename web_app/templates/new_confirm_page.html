@@ -1,0 +1,23 @@
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "home" %}
+
+{% block content %}
+
+
+<h2>Confirm Artist from List{{ results["search_term"] }}</h2>
+<form action="/artist/confirm" method="POST">
+
+  <select name="matching-artists" if ="fname" class="form-select">
+    <option value="">--Please choose an option--</option>
+    {% for artist_options in results %}
+        <option value="{{ artist_options['name'] }}"> {{ artist_options['name']}}</option>
+    {% endfor %}
+  </select>
+
+<button type="submit" value="Submit" class="btn btn-outline-success">Continue</button>
+</form>
+
+<img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="300" height="180">
+
+{% endblock %}
+

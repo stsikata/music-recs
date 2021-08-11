@@ -1,13 +1,15 @@
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "home" %}
 
-<html>
+{% block content %}
 
-<body>
 
-<h2>Please Confirm Artist {{ results["mention"] }}</h2>
+<h2>Confirm Artist from List{{ results["search_term"] }}</h2>
 <form action="/artist/confirm" method="POST">
- 
+
+    <label for="fname">Please enter your artist's name exactly as it appears below:</label><br>
     <p> </p>
-    <input type="text" id="fname" name="mention"><br>
+    <input type="text" id="fname" name="matching_artists"><br>
     <p> </p>
     <input type="submit" value="Submit">
   </form> 
@@ -16,11 +18,11 @@
 <!-- TODO: consider adding images using the provided icon urls -->
 <ul>
 {% for artist_options in results %}
-    <li>{{ results["name"] }} </li>
+    <li>{{ artist_options["name"] }} </li>
 {% endfor %}
 </ul>
 
-</body>
+<img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="300" height="180">
 
-</html>
+{% endblock %}
 
