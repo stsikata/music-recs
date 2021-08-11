@@ -1,9 +1,9 @@
-<html>
-<body>
+{% extends "layout.html" %}
 
-<h2>Artist Discovery App</h2>
+{% block content %}
 
-<p> Hello! Welcome to the Spotify Music Discovery application.</p>
+
+<h3> Hello! Welcome to the Spotify Music Discovery application.</h3>
 
 <form action="/artist/search" method="POST">
   
@@ -16,8 +16,6 @@
 </form> 
 
 
-
 <img src="https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg" alt="Spotify" width="300" height="180">
 
-</body>
-</html>
+{% endblock %}
