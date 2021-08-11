@@ -19,7 +19,7 @@ def artist_search():
     print("FORM DATA:", dict(request.form))
     request_data = dict(request.form)
 
-    search_term = request_data.get("search_term") or "John"
+    search_term = request_data.get("search_term")
     
     results = fetch_artists(search_term)
     if results:
@@ -35,9 +35,9 @@ def confirm_search():
     print("FORM DATA:", dict(request.form))
     request_data = dict(request.form)
 
-    mention = request_data.get("mention") 
+    matching_artists = request_data.get("matching_artists") 
     
-    results = fetch_artists(mention)
+    results = fetch_artists(matching_artists)
     if results:
       # flash("Weather Forecast Generated Successfully!", "success")
          return render_template("artist_results.html", results=results)
