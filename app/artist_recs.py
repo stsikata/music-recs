@@ -9,6 +9,9 @@ load_dotenv() # load environment variables
 #print("CLIENT ID:", os.environ.get("SPOTIPY_CLIENT_ID")) # env var used implicitly by the spotipy package
 #print("CLIENT SECRET:", os.environ.get("SPOTIPY_CLIENT_SECRET"))  # env var used implicitly by the spotipy package
 
+client_credentials_manager = SpotifyClientCredentials()
+client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
 def fetch_artists(search_term):
     response = client.search(q=search_term, type="artist", limit=20)
     return response["artists"]["items"]
@@ -17,8 +20,7 @@ def fetch_artists(search_term):
 
 # Main conditional, can be indented
 if __name__ == "__main__":
-    client_credentials_manager = SpotifyClientCredentials()
-    client = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+   
 
     # USER SEARCHES FOR ARTIST
     search_term = input("Please enter the name of a musical artist you like: ")
