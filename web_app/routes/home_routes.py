@@ -63,6 +63,5 @@ def confirm_search():
     if results: #recycled from weather app
         return render_template("artist_results.html", new_response=new_response)
     else:
-        
         return redirect("/")
 
