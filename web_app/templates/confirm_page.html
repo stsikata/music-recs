@@ -1,10 +1,16 @@
-Please select from below to confirm the name of the artist you were thinking of:
+
 <html>
 
 <body>
 
-<h2>Confirm Artist {{ results["mention"] }}</h2>
-
+<h2>Please Confirm Artist {{ results["mention"] }}</h2>
+<form action="/artist/confirm" method="POST">
+ 
+    <p> </p>
+    <input type="text" id="fname" name="mention"><br>
+    <p> </p>
+    <input type="submit" value="Submit">
+  </form> 
 
 <!-- TODO: consider using a table instead of a list -->
 <!-- TODO: consider adding images using the provided icon urls -->
