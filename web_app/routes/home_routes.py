@@ -35,7 +35,8 @@ def artist_search():
     
     results = fetch_artists(search_term)
     if results: #recycled from weather app
-        return render_template("confirm_page.html", results=results)
+        # return render_template("confirm_page.html", results=results)
+        return render_template("new_confirm_page.html", results=results)
     else:
         return redirect("/")
 
@@ -49,7 +50,7 @@ def confirm_search():
     mention = request_data.get("matching_artists")  #Pulled from artist_rec.py script upto line 61
     results = fetch_artists(mention) 
     matching_artists = [artist for artist in results if artist["name"] == mention] 
-
+    
     try:
         matching_artist = matching_artists[0] # triggers an IndexError (list index out of range) 
         artists_id = matching_artist["id"]
