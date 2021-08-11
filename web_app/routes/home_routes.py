@@ -35,7 +35,6 @@ def artist_search():
     
     results = fetch_artists(search_term)
     if results: #recycled from weather app
-        #ADD BACK IF new one doesn't work # return render_template("confirm_page.html", results=results)
         return render_template("confirm_page.html", results=results)
     else:
         return redirect("/")
