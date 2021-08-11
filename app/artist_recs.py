@@ -32,9 +32,11 @@ if __name__ == "__main__":
 
     print("ARTIST CHOICES:")
     for artist_options in results:
-        # artist_list.append(artist_options)
 
-        print(artist_options["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
+
+
+      #  print(artist_options["name"]) #would be nice to have list number next to artist so user doesn't have to re-type full name.
+        print(artist_options)  
 
     mention = input("Please type to confirm the name of the artist you were thinking of: ")
 
@@ -61,3 +63,5 @@ if __name__ == "__main__":
 
     
 
+
+       
