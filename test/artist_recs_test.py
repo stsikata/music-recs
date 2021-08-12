@@ -1,10 +1,9 @@
-# How to allow the app to fail gracefully and prompt the user for another input
+import pytest
 
-while True:
-    mention = input("Please press 'DONE when you are finished")
-    if mention == "DONE":
-        break
-    else:
-        print("Whoops, please make sure you enter 'DONE'")
+# working through possible error message/exit: https://docs.pytest.org/en/latest/getting-started.html#our-first-test-run
+def fail_test():
+    raise SystemExit(1)
 
-print(mention)
+def test_fail():
+    with pytest.raises(SystemExit):
+            fail_test()

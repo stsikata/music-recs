@@ -8,3 +8,4 @@ spotipy # see: https://github.com/plamere/spotipy
 Flask
 gunicorn
 
+pytest

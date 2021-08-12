@@ -1,5 +1,5 @@
 # music-recs
-A Python application to get music recommendations.
+A Python application to get music recommendations from Spotify.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Use Anaconda to create and activate a new virtual environment called "music-recs
 
 ```sh
 conda create -n music-recs-env python=3.8 # (first time only)
-y
+conda activate music-recs-env
 ```
 
 After activating the virtual environment, install package dependencies (see the ["requirements.txt"](/requirements.txt) file):
@@ -42,4 +42,13 @@ Run the artist recommendations script:
 
 ```py
 python artist_recs.py
+```
+
+
+## Testing
+
+Running all tests:
+
+```sh
+pytest
 ```
