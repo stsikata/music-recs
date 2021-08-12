@@ -44,6 +44,7 @@ Run the artist recommendations script:
 python artist_recs.py
 ```
 
+If running the program through Heroku, follow [this repo's](https://github.com/prof-rossetti/intro-to-python/blob/main/notes/clis/heroku.md) README file.
 
 ## Testing
 
